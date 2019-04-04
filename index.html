@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sonni Candra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{background-color:#efefef;margin:0;}
+        #logo{width:50%;position: absolute;display:block}
+    </style>
+    
+</head>
+<body onload="resize()">
+    <a href="https://www.linkedin.com/in/sonnicandra/"><img src="logo.png" id="logo" /></a>
+    <script type="text/javascript">
+        var addEvent = function(object, type, callback) {
+            if (object == null || typeof(object) == 'undefined') return;
+            if (object.addEventListener) {
+                object.addEventListener(type, callback, false);
+            } else if (object.attachEvent) {
+                object.attachEvent("on" + type, callback);
+            } else {
+                object["on"+type] = callback;
+            }
+        };
+        addEvent(window, "resize", resize);
+        function resize(){
+            var img = document.getElementById('logo');
+            var imgHeight = img.height;
+            var height = window.innerHeight;
+            var newTop = (height-imgHeight)/2;
+            var imgWidth = img.clientWidth;
+            var width = window.innerWidth;
+            var newWidth = (width-imgWidth)/2;
+            img.style.top = newTop+"px";
+            img.style.left = newWidth+"px";
+        }
+    </script>
+</body>
+</html>
